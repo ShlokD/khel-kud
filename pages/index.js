@@ -25,14 +25,14 @@ export const Features = ({ features }) => {
       title="Features"
       className="flex flex-column flex-row-ns justify-around items-center pv5"
     >
-      {features.map(({ title, subtitle, color, image }, index) => {
+      {features.map(({ title, subtitle, color, image, imgAlt }, index) => {
         return (
           <div
             key={`feature-${index}`}
             className={`bg-${color} pa3 mv4 mv0-ns white br4 shadow-4`}
           >
             <div className={`bg-${color} pa4 white br4 b--solid`}>
-              <img src={image} height={96} width={96} />
+              <img alt={imgAlt} src={image} height={96} width={96} />
             </div>
             <p className="f4 fw7">{title}</p>
             <p>{subtitle}</p>
@@ -49,7 +49,7 @@ export const Visit = ({ visitDescription }) => (
     className="flex flex-column flex-row-ns justify-center items-center pv5"
   >
     <div className="pt4 ph4 w-50">
-      <img src="/kidsplaying.svg" className="w-100 h-100" />
+      <img alt="Kids playing" src="/kidsplaying.svg" className="w-100 h-100" />
     </div>
     <div className="white flex flex-column tc pa4 f3 w-50 items-center justify-center">
       <p className="f3">{visitDescription}</p>
@@ -69,7 +69,7 @@ export const Credentials = ({ credentials }) => {
       title="Credentials"
       className="flex flex-column flex-row-ns justify-center items-center pv5"
     >
-      <img src="/parkentrance.svg" className="w-50 h-50" />
+      <img alt="Park Entrance" src="/parkentrance.svg" className="w-50 h-50" />
       <div className="white flex flex-column tc pa4 f3 ml4-ns">
         <h2 className="tc">Why We are the best</h2>
         <div>

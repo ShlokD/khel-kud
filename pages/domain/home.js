@@ -5,25 +5,29 @@ export const getHomeModel = () => {
         title: "Safe Rides",
         subtitle: "CC Certified",
         color: "pink",
-        image: "/themepark.svg"
+        image: "/themepark.svg",
+        imgAlt: "Rides"
       },
       {
         title: "Delicious Foods",
         subtitle: "Gluten Free",
         color: "orange",
-        image: "/pizza.svg"
+        image: "/pizza.svg",
+        imgAlt: "Pizza"
       },
       {
         title: "Entertainment",
         subtitle: "Suitable for all ages",
         color: "purple",
-        image: "/juggling.svg"
+        image: "/juggling.svg",
+        imgAlt:"Jugglers"
       },
       {
         title: "Ice-Cream",
         subtitle: "No synthetic",
         color: "light-blue",
-        image: "/icecream.svg"
+        image: "/icecream.svg",
+        imgAlt: "Icecream"
       }
     ],
     credentials: [
