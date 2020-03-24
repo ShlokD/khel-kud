@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { getHomeModel } from "./domain/home";
+import { getHomeModel } from "../domain/home";
 
 export const Title = () => (
   <section title="Khel Kud" className="flex flex-column white items-center pv5">

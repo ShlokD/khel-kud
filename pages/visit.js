@@ -1,10 +1,10 @@
-import { getVisitModel } from "./domain/visit";
+import { getVisitModel } from "../domain/visit";
 
 const VisitPage = ({ visitFeatures }) => {
   return (
     <div className="flex flex-column">
       {visitFeatures.map(
-        ({ title, icon, featureImage, description }, index) => {
+        ({ title, icon, featureImage, description, featureImageAlt }, index) => {
           return (
             <div className="flex flex-column flex-row-ns items-center white">
               <img
