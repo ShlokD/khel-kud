@@ -6,15 +6,19 @@ export const Title = () => (
     <h1 className="fw6 f-headline pa0 ma0 tc">Khel Kud</h1>
 
     <div className="flex flex-column mh4">
-      <p>
-        Designed by a nonprofit organization to be accessible for all children
-      </p>
-      <button className="ph6 pv3 ma2 br-pill f3 b--none pointer">
+      <p className="f2 tc">A park designed for the family</p>
+      <a
+        href="/explore"
+        className="ph4 pv3 ma2 br-pill f3 bg-orange b--none pointer no-underline white tc"
+      >
         Explore
-      </button>
-      <button className="ph6 pv3 ma2 br-pill f3 bg-light-purple b--none pointer">
+      </a>
+      <a
+        href="/tickets"
+        className="ph4 pv3 ma2 br-pill f3 bg-light-purple b--none pointer no-underline white tc"
+      >
         Buy Tickets
-      </button>
+      </a>
     </div>
   </section>
 );
@@ -23,19 +27,21 @@ export const Features = ({ features }) => {
   return (
     <section
       title="Features"
-      className="flex flex-column flex-row-ns justify-around items-center pv5"
+      className="flex flex-column flex-wrap flex-row-ns justify-around items-center pv5"
     >
       {features.map(({ title, subtitle, color, image, imgAlt }, index) => {
         return (
           <div
             key={`feature-${index}`}
-            className={`bg-${color} pa3 mv4 mv0-ns white br4 shadow-4`}
+            className={`bg-${color} pa3 ma4 white br4 shadow-4 flex`}
           >
             <div className={`bg-${color} pa4 white br4 b--solid`}>
               <img alt={imgAlt} src={image} height={96} width={96} />
             </div>
-            <p className="f4 fw7">{title}</p>
-            <p>{subtitle}</p>
+            <div className="ma2 tc">
+              <p className="f4 fw7">{title}</p>
+              <p>{subtitle}</p>
+            </div>
           </div>
         );
       })}
@@ -48,11 +54,9 @@ export const Visit = ({ visitDescription }) => (
     title="Visit Us"
     className="flex flex-column flex-row-ns justify-center items-center pv5"
   >
-    <div className="pt4 ph4 w-50">
-      <img alt="Kids playing" src="/kidsplaying.svg" className="w-100 h-100" />
-    </div>
+    <img alt="Kids playing" src="/kidsplaying.svg" className="w-50 h-50" />
     <div className="white flex flex-column tc pa4 f3 w-50 items-center justify-center">
-      <p className="f3">{visitDescription}</p>
+      <p className="f">{visitDescription}</p>
       <a
         href="/visit"
         className="self-center bg-light-yellow black no-underline ph4 pv2 br4 b--none tc pointer"
@@ -94,6 +98,8 @@ export const Connect = ({ dialogMessages }) => {
 
   async function onEmailSubmit(ev) {
     ev.preventDefault();
+    if (!ev.isTrusted) return;
+
     const email = ev.target.elements.email.value;
     const options = {
       method: "POST",

@@ -24,14 +24,14 @@ export const getHomeModel = () => {
       },
       {
         title: "Ice-Cream",
-        subtitle: "No synthetic",
+        subtitle: "No synthetic ingredients",
         color: "light-blue",
         image: "/icecream.svg",
         imgAlt: "Icecream"
       }
     ],
     credentials: [
-      "Non-Profit Organization",
+      "Award Winning Rides",
       "Customer Support",
       "High Safety & Security",
       "Well Designed & Decorated"
@@ -41,10 +41,8 @@ export const getHomeModel = () => {
       SUBSCRIPTION_SUCCESS:
         "You've successfully subscribed to our newsletter. Check your inbox for updates!"
     },
-    visitDescription: `The outdoor environment is age appropriate to play. 
-    
-    The playground has been designed according to a first responders theme.
-    
-    The project is set to open Spring 2020`
+    visitDescription: `Come and spend a day in our theme park.
+
+    It's fun for the whole family`
   };
 };
