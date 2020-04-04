@@ -3,17 +3,19 @@ import { getHomeModel } from "../domain/home";
 
 export const Title = () => (
   <section title="Khel Kud" className="flex flex-column white items-center pv5">
-    <h1 className="fw6 f-headline pa0 ma0 tc">Khel Kud</h1>
+    <h1 data-test="app-title" className="fw6 f-headline pa0 ma0 tc">Khel Kud</h1>
 
     <div className="flex flex-column mh4">
       <p className="f2 tc">A park designed for the family</p>
       <a
+        data-test='explore-link'
         href="/explore"
         className="ph4 pv3 ma2 br-pill f3 bg-orange b--none pointer no-underline white tc"
       >
         Explore
       </a>
       <a
+        data-test="tickets-link"
         href="/tickets"
         className="ph4 pv3 ma2 br-pill f3 bg-light-purple b--none pointer no-underline white tc"
       >
@@ -32,6 +34,7 @@ export const Features = ({ features }) => {
       {features.map(({ title, subtitle, color, image, imgAlt }, index) => {
         return (
           <div
+            data-test="feature"
             key={`feature-${index}`}
             className={`bg-${color} pa3 ma4 white br4 shadow-4 flex`}
           >
@@ -54,10 +57,11 @@ export const Visit = ({ visitDescription }) => (
     title="Visit Us"
     className="flex flex-column flex-row-ns justify-center items-center pv5"
   >
-    <img alt="Kids playing" src="/kidsplaying.svg" className="w-50 h-50" />
+    <img data-test="visit-image" alt="Kids playing" src="/kidsplaying.svg" className="w-50 h-50" />
     <div className="white flex flex-column tc pa4 f3 w-50 items-center justify-center">
-      <p className="f">{visitDescription}</p>
+      <p data-test="visit-description" className="f">{visitDescription}</p>
       <a
+        data-test="visit-link"
         href="/visit"
         className="self-center bg-light-yellow black no-underline ph4 pv2 br4 b--none tc pointer"
       >
@@ -80,6 +84,7 @@ export const Credentials = ({ credentials }) => {
           {credentials.map((credential, index) => {
             return (
               <p
+                data-test="credential"
                 key={`credential-${index}}`}
                 className="pa4 b--dashed ma2 center tc"
               >
@@ -115,6 +120,7 @@ export const Connect = ({ dialogMessages }) => {
     <div className="flex flex-column items-center justify-center flex-column white pv4">
       <p className="white f2 tc">For kids who enjoy themselves</p>
       <form
+        data-test="email-form"
         className="flex flex-column flex-row-ns items-center"
         onSubmit={onEmailSubmit}
       >

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "test": "cypress run"
   },
   "dependencies": {
     "lowdb": "^1.0.0",
@@ -15,5 +16,9 @@
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "tachyons": "^4.11.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "cypress": "^4.3.0"
   }
 }

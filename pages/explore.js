@@ -5,7 +5,7 @@ const Accordion = ({ title, children, containerClasses }) => {
   const [expanded, setExpanded] = useState(false);
   const maxHeight = expanded ? 50000 : 0;
   return (
-    <div className="flex flex-column pa4 ma2 justify-center items-center w-100">
+    <div data-test="explore-accordion" className="flex flex-column pa4 ma2 justify-center items-center w-100">
       <button
         className="b pa4 w-90 f1 light-purple bg-transparent b--dashed pointer accordion-button"
         onClick={() => setExpanded(!expanded)}
@@ -24,7 +24,7 @@ const Accordion = ({ title, children, containerClasses }) => {
 
 const AttractionCard = ({ name, image, description }) => {
   return (
-    <div className="pa2 ma2 flex items-center justify-center bg-white w-50 h-50 shadow-4">
+    <div data-test="attraction-card" className="pa2 ma2 flex items-center justify-center bg-white w-50 h-50 shadow-4">
       <img className="h-50 w-50" alt={name} src={image} />
       <div className="ma2 pa2 flex flex-column tc">
         <p className="f2">{name}</p>

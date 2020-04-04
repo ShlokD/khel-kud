@@ -38,7 +38,7 @@ body {
     border-color: #a463f2;
 }
 
-@media screen and (min-width: 2560px) {
+@media screen and (min-width: 1440px) {
     #__next {
         width: 100%;
     }
