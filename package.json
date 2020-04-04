@@ -11,14 +11,13 @@
   },
   "dependencies": {
     "lowdb": "^1.0.0",
-    "next": "9.3.0",
+    "next": "^9.3.4",
     "next-connect": "^0.6.0",
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "tachyons": "^4.11.1"
   },
   "devDependencies": {
-    "concurrently": "^5.1.0",
     "cypress": "^4.3.0"
   }
 }
