@@ -1,14 +1,17 @@
 import React, { Fragment, useState } from "react";
 import { getHomeModel } from "../domain/home";
+import { addSubscription } from "../utils";
 
 export const Title = () => (
   <section title="Khel Kud" className="flex flex-column white items-center pv5">
-    <h1 data-test="app-title" className="fw6 f-headline pa0 ma0 tc">Khel Kud</h1>
+    <h1 data-test="app-title" className="fw6 f-headline pa0 ma0 tc">
+      Khel Kud
+    </h1>
 
     <div className="flex flex-column mh4">
       <p className="f2 tc">A park designed for the family</p>
       <a
-        data-test='explore-link'
+        data-test="explore-link"
         href="/explore"
         className="ph4 pv3 ma2 br-pill f3 bg-orange b--none pointer no-underline white tc"
       >
@@ -25,41 +28,46 @@ export const Title = () => (
   </section>
 );
 
-export const Features = ({ features }) => {
-  return (
-    <section
-      title="Features"
-      className="flex flex-column flex-wrap flex-row-ns justify-around items-center pv5"
-    >
-      {features.map(({ title, subtitle, color, image, imgAlt }, index) => {
-        return (
-          <div
-            data-test="feature"
-            key={`feature-${index}`}
-            className={`bg-${color} pa3 ma4 white br4 shadow-4 flex`}
-          >
-            <div className={`bg-${color} pa4 white br4 b--solid`}>
-              <img alt={imgAlt} src={image} height={96} width={96} />
-            </div>
-            <div className="ma2 tc">
-              <p className="f4 fw7">{title}</p>
-              <p>{subtitle}</p>
-            </div>
+export const Features = ({ features }) => (
+  <section
+    title="Features"
+    className="flex flex-column flex-wrap flex-row-ns justify-around items-center pv5"
+  >
+    {features.map(({ title, subtitle, color, image, imgAlt }, index) => {
+      return (
+        <div
+          data-test="feature"
+          key={`feature-${index}`}
+          className={`bg-${color} pa3 ma4 white br4 shadow-4 flex`}
+        >
+          <div className={`bg-${color} pa4 white br4 b--solid`}>
+            <img alt={imgAlt} src={image} height={96} width={96} />
           </div>
-        );
-      })}
-    </section>
-  );
-};
+          <div className="ma2 tc">
+            <p className="f4 fw7">{title}</p>
+            <p>{subtitle}</p>
+          </div>
+        </div>
+      );
+    })}
+  </section>
+);
 
 export const Visit = ({ visitDescription }) => (
   <section
     title="Visit Us"
     className="flex flex-column flex-row-ns justify-center items-center pv5"
   >
-    <img data-test="visit-image" alt="Kids playing" src="/kidsplaying.svg" className="w-50 h-50" />
+    <img
+      data-test="visit-image"
+      alt="Kids playing"
+      src="/kidsplaying.svg"
+      className="w-50 h-50"
+    />
     <div className="white flex flex-column tc pa4 f3 w-50 items-center justify-center">
-      <p data-test="visit-description" className="f">{visitDescription}</p>
+      <p data-test="visit-description" className="f">
+        {visitDescription}
+      </p>
       <a
         data-test="visit-link"
         href="/visit"
@@ -106,13 +114,7 @@ export const Connect = ({ dialogMessages }) => {
     if (!ev.isTrusted) return;
 
     const email = ev.target.elements.email.value;
-    const options = {
-      method: "POST",
-      body: JSON.stringify({ email })
-    };
-    const response = await fetch("/api/email-submit", options);
-    const jsonResponse = await response.json();
-    const { status } = jsonResponse;
+    const status = await addSubscription(email);
     setDialogMessage(dialogMessages[status]);
   }
 
